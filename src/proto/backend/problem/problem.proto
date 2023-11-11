@@ -38,10 +38,11 @@ message CreateProblemResponse{
 
 // Update
 message UpdateProblemRequest{
-  string courseId = 1;
-  string group = 2;
-  string code = 3;
-  string name = 4;
+  string id = 1;
+  string courseId = 2;
+  string group = 3;
+  string code = 4;
+  string name = 5;
 }
 
 message UpdateProblemResponse{

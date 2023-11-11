@@ -48,8 +48,9 @@ message CreateRatingResponse{
 
 // Update
 message UpdateRatingRequest{
-  string score = 1;
-  string difficulty = 2;
+  string id = 1;
+  string score = 2;
+  string difficulty = 3;
 }
 
 message UpdateRatingResponse{
