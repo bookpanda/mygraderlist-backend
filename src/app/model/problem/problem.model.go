@@ -7,8 +7,8 @@ import (
 
 type Problem struct {
 	model.Base
-	CourseId *uuid.UUID `json:"course_id" gorm:"primaryKey"`
-	Group    string     `json:"group" gorm:"type:tinytext"`
-	Code     string     `json:"code" gorm:"type:tinytext"`
-	Name     string     `json:"name" gorm:"type:tinytext"`
+	CourseId uuid.UUID `json:"course_id" gorm:"primaryKey"`
+	Group    string    `json:"group" gorm:"type:tinytext"`
+	Code     string    `json:"code" gorm:"type:tinytext"`
+	Name     string    `json:"name" gorm:"type:tinytext"`
 }
