@@ -67,7 +67,7 @@ func (s *Service) FindAll(_ context.Context, _ *proto.FindAllProblemRequest) (*p
 		log.Error().Err(err).
 			Str("service", "problem").
 			Str("module", "find all").
-			Msg("Error while querying all baans")
+			Msg("Error while querying all problems")
 
 		return nil, status.Error(codes.Unavailable, "Internal error")
 	}

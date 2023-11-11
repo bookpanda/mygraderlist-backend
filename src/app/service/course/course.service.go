@@ -7,9 +7,7 @@ import (
 	"github.com/bookpanda/mygraderlist-backend/src/app/model"
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/course"
 	"github.com/bookpanda/mygraderlist-backend/src/config"
-	constant "github.com/bookpanda/mygraderlist-backend/src/constant/problem"
 	proto "github.com/bookpanda/mygraderlist-proto/MyGraderList/backend/course"
-	"github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc/codes"
@@ -45,43 +43,16 @@ func NewService(repository IRepository, cache ICacheRepository, conf config.App)
 
 func (s *Service) FindAll(_ context.Context, _ *proto.FindAllCourseRequest) (*proto.FindAllCourseResponse, error) {
 	var courses []*course.Course
-	err := s.cache.GetCache(constant.ProblemKey, &courses)
-	if err != redis.Nil {
 
-		if err != nil {
-			log.Error().
-				Err(err).
-				Str("service", "course").
-				Str("module", "find all").
-				Msg("Error while get cache")
-
-			return nil, status.Error(codes.Unavailable, "Service is down")
-		}
-
-		return &proto.FindAllCourseResponse{Courses: RawToDtoList(&courses)}, nil
-	}
-
-	err = s.repository.FindAll(&courses)
+	err := s.repository.FindAll(&courses)
 	if err != nil {
 
 		log.Error().Err(err).
 			Str("service", "course").
 			Str("module", "find all").
-			Msg("Error while querying all baans")
+			Msg("Error while querying all courses")
 
 		return nil, status.Error(codes.Unavailable, "Internal error")
-	}
-
-	err = s.cache.SaveCache(constant.ProblemKey, &courses, s.conf.ProblemCacheTTL)
-	if err != nil {
-
-		log.Error().
-			Err(err).
-			Str("service", "problem").
-			Str("module", "find all").
-			Msg("Error while saving the cache")
-
-		return nil, status.Error(codes.Unavailable, "Service is down")
 	}
 
 	return &proto.FindAllCourseResponse{Courses: RawToDtoList(&courses)}, nil
