@@ -7,6 +7,6 @@ import (
 
 type Like struct {
 	model.Base
-	ProblemId uuid.UUID `json:"problem_id" gorm:"primaryKey"`
-	UserId    uuid.UUID `json:"user_id" gorm:"primaryKey"`
+	ProblemId *uuid.UUID `json:"problem_id" gorm:"primaryKey"`
+	UserId    *uuid.UUID `json:"user_id" gorm:"primaryKey"`
 }
