@@ -5,6 +5,7 @@ package user;
 option go_package = "MyGraderList/backend/user";
 
 service UserService {
+  rpc FindOne(FindOneUserRequest) returns (FindOneUserResponse){}
   rpc FindByEmail(FindByEmailUserRequest) returns(FindByEmailUserResponse) {}
   rpc Create(CreateUserRequest) returns (CreateUserResponse){}
   rpc Update(UpdateUserRequest) returns (UpdateUserResponse){}
