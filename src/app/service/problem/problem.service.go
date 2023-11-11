@@ -105,7 +105,7 @@ func (s *Service) Update(_ context.Context, req *proto.UpdateProblemRequest) (re
 	}
 
 	raw := &problem.Problem{
-		CourseId: courseId,
+		CourseId: &courseId,
 		Group:    req.Group,
 		Code:     req.Code,
 		Name:     req.Name,
@@ -149,7 +149,7 @@ func DtoToRaw(in *proto.Problem) (result *problem.Problem, err error) {
 			UpdatedAt: time.Time{},
 			DeletedAt: gorm.DeletedAt{},
 		},
-		CourseId: courseId,
+		CourseId: &courseId,
 		Group:    in.Group,
 		Code:     in.Code,
 		Name:     in.Name,
