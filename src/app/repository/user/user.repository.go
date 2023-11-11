@@ -14,7 +14,7 @@ func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) FindUserByEmail(email string, result *[]*user.User) error {
+func (r *Repository) FindByEmail(email string, result *[]*user.User) error {
 	return r.db.Model(&user.User{}).Find(result, "email = ?", email).Error
 }
 

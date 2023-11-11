@@ -14,11 +14,11 @@ func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) FindAllEmoji(result *[]*emoji.Emoji) error {
+func (r *Repository) FindAll(result *[]*emoji.Emoji) error {
 	return r.db.Model(&course.Course{}).Find(result).Error
 }
 
-func (r *Repository) FindEmojiByUserId(userId string, result *[]*emoji.Emoji) error {
+func (r *Repository) FindByUserId(userId string, result *[]*emoji.Emoji) error {
 	return r.db.Model(&emoji.Emoji{}).Find(result, "user_id = ?", userId).Error
 }
 

@@ -13,11 +13,11 @@ func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) FindAllRating(result *[]*rating.Rating) error {
+func (r *Repository) FindAll(result *[]*rating.Rating) error {
 	return r.db.Model(&rating.Rating{}).Find(result).Error
 }
 
-func (r *Repository) FindRatingByUserId(userId string, result *[]*rating.Rating) error {
+func (r *Repository) FindByUserId(userId string, result *[]*rating.Rating) error {
 	return r.db.Model(&rating.Rating{}).Find(result, "user_id = ?", userId).Error
 }
 

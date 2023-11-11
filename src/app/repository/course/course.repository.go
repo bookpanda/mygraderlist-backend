@@ -13,7 +13,7 @@ func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) FindAllCourse(result *[]*course.Course) error {
+func (r *Repository) FindAll(result *[]*course.Course) error {
 	return r.db.Model(&course.Course{}).Find(result).Error
 }
 

@@ -14,7 +14,7 @@ func NewRepository(db *gorm.DB) *Repository {
 	return &Repository{db: db}
 }
 
-func (r *Repository) FindLikeByUserId(userId string, result *[]*like.Like) error {
+func (r *Repository) FindByUserId(userId string, result *[]*like.Like) error {
 	return r.db.Model(&emoji.Emoji{}).Find(result, "user_id = ?", userId).Error
 }
 
