@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package course;
+
+option go_package = "MyGraderList/backend/course";
+
+service CourseService {
+  rpc FindAll(FindAllCourseRequest) returns (FindAllCourseResponse){}
+  rpc Create(CreateCourseRequest) returns (CreateCourseResponse){}
+  rpc Update(UpdateCourseRequest) returns (UpdateCourseResponse){}
+  rpc Delete(DeleteCourseRequest) returns (DeleteCourseResponse){}
+}
+
+message Course{
+  string id = 1;
+  string course = 2;
+  string name = 3;
+  string color = 4;
+}
+
+// FindAll
+message FindAllCourseRequest{
+}
+
+message FindAllCourseResponse{
+  repeated Course courses = 1;
+}
+
+// Create
+message CreateCourseRequest{
+  Course course = 1;
+}
+
+message CreateCourseResponse{
+  Course course = 1;
+}
+
+// Update
+message UpdateCourseRequest{
+  string courseId = 1;
+  string group = 2;
+  string code = 3;
+  string name = 4;
+}
+
+message UpdateCourseResponse{
+  Course course = 1;
+}
+
+// Delete
+message DeleteCourseRequest{
+  string id = 1;
+}
+
+message DeleteCourseResponse{
+  bool success = 1;
+}

@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "MyGraderList/backend/user";
+
+service UserService {
+  rpc FindOne(FindOneUserRequest) returns (FindOneUserResponse){}
+  rpc FindByEmail(FindByEmailUserRequest) returns(FindByEmailUserResponse) {}
+  rpc Create(CreateUserRequest) returns (CreateUserResponse){}
+  rpc Update(UpdateUserRequest) returns (UpdateUserResponse){}
+  rpc Delete(DeleteUserRequest) returns (DeleteUserResponse){}
+  rpc Verify(VerifyUserRequest) returns (VerifyUserResponse){}
+}
+
+message User{
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  string password = 4;
+}
+
+// FindOne
+message FindOneUserRequest{
+  string id = 1;
+}
+
+message FindOneUserResponse{
+  User user = 1;
+}
+
+// FindByEmail
+message FindByEmailUserRequest{
+  string email = 1;
+}
+
+message FindByEmailUserResponse{
+  User user = 1;
+}
+
+// Create
+message CreateUserRequest{
+  User user = 1;
+}
+
+message CreateUserResponse{
+  User user = 1;
+}
+
+// Update
+message UpdateUserRequest{
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  string password = 4;
+}
+
+message UpdateUserResponse{
+  User user = 1;
+}
+
+// Delete
+message DeleteUserRequest{
+  string id = 1;
+}
+
+message DeleteUserResponse{
+  bool success = 1;
+}
+
+// Verify
+message VerifyUserRequest{
+  string studentId = 1;
+  string verifyType = 2;
+}
+
+message VerifyUserResponse{
+  bool success = 1;
+}

@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package rating;
+
+option go_package = "MyGraderList/backend/rating";
+
+service RatingService {
+  rpc FindAll(FindAllRatingRequest) returns(FindAllRatingResponse) {}
+  rpc FindByUserId(FindByUserIdRatingRequest) returns(FindByUserIdRatingResponse) {}
+  rpc Create(CreateRatingRequest) returns (CreateRatingResponse){}
+  rpc Update(UpdateRatingRequest) returns (UpdateRatingResponse){}
+  rpc Delete(DeleteRatingRequest) returns (DeleteRatingResponse){}
+}
+
+message Rating{
+  string id = 1;
+  string problemId = 2;
+  string userId = 3;
+  string score = 4;
+  string difficulty = 5;
+}
+
+// FindAll
+message FindAllRatingRequest{
+}
+
+message FindAllRatingResponse{
+  repeated Rating ratings = 1;
+}
+
+// FindByUserId
+message FindByUserIdRatingRequest{
+  string userId = 1;
+}
+
+message FindByUserIdRatingResponse{
+  repeated Rating ratings = 1;
+}
+
+// Create
+message CreateRatingRequest{
+  Rating rating = 1;
+}
+
+message CreateRatingResponse{
+  Rating rating = 1;
+}
+
+// Update
+message UpdateRatingRequest{
+  string score = 1;
+  string difficulty = 2;
+}
+
+message UpdateRatingResponse{
+  Rating rating = 1;
+}
+
+// Delete
+message DeleteRatingRequest{
+  string id = 1;
+}
+
+message DeleteRatingResponse{
+  bool success = 1;
+}

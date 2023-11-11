@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package like;
+
+option go_package = "MyGraderList/backend/like";
+
+service LikeService {
+  rpc FindByUserId(FindByUserIdLikeRequest) returns(FindByUserIdLikeResponse) {}
+  rpc Create(CreateLikeRequest) returns (CreateLikeResponse){}
+  rpc Delete(DeleteLikeRequest) returns (DeleteLikeResponse){}
+}
+
+message Like{
+  string id = 1;
+  string problemId = 2;
+  string userId = 3;
+}
+
+// FindByUserId
+message FindByUserIdLikeRequest{
+  string userId = 1;
+}
+
+message FindByUserIdLikeResponse{
+  repeated Like likes = 1;
+}
+
+// Create
+message CreateLikeRequest{
+  Like like = 1;
+}
+
+message CreateLikeResponse{
+  Like like = 1;
+}
+
+// Update
+message UpdateLikeRequest{
+  string problemId = 1;
+  string userId = 2;
+}
+
+message UpdateLikeResponse{
+  Like Like = 1;
+}
+
+// Delete
+message DeleteLikeRequest{
+  string id = 1;
+}
+
+message DeleteLikeResponse{
+  bool success = 1;
+}

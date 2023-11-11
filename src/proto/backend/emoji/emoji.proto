@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package emoji;
+
+option go_package = "MyGraderList/backend/emoji";
+
+service EmojiService {
+  rpc FindAll(FindByUserIdEmojiRequest) returns(FindByUserIdEmojiResponse) {}
+  rpc FindByUserId(FindByUserIdEmojiRequest) returns(FindByUserIdEmojiResponse) {}
+  rpc Create(CreateEmojiRequest) returns (CreateEmojiResponse){}
+  rpc Delete(DeleteEmojiRequest) returns (DeleteEmojiResponse){}
+}
+
+message Emoji{
+  string id = 1;
+  string emoji = 2;
+  string problemId = 3;
+  string userId = 4;
+}
+
+// FindAll
+message FindAllEmojiRequest{
+}
+
+message FindAllEmojiResponse{
+  repeated Emoji emojis = 1;
+}
+
+// FindByUserId
+message FindByUserIdEmojiRequest{
+  string userId = 1;
+}
+
+message FindByUserIdEmojiResponse{
+  repeated Emoji emojis = 1;
+}
+
+// Create
+message CreateEmojiRequest{
+  Emoji emoji = 1;
+}
+
+message CreateEmojiResponse{
+  Emoji emoji = 1;
+}
+
+// Delete
+message DeleteEmojiRequest{
+  string id = 1;
+}
+
+message DeleteEmojiResponse{
+  bool success = 1;
+}
