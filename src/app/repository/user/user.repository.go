@@ -18,8 +18,8 @@ func (r *Repository) FindOne(id string, result *user.User) error {
 	return r.db.First(&result, "id = ?", id).Error
 }
 
-func (r *Repository) FindByEmail(email string, result *[]*user.User) error {
-	return r.db.Model(&user.User{}).Find(result, "email = ?", email).Error
+func (r *Repository) FindByEmail(email string, result *user.User) error {
+	return r.db.Model(&user.User{}).First(&result, "email = ?", email).Error
 }
 
 func (r *Repository) Create(in *user.User) error {
