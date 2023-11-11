@@ -99,16 +99,11 @@ func (s *Service) Create(_ context.Context, req *proto.CreateProblemRequest) (re
 }
 
 func (s *Service) Update(_ context.Context, req *proto.UpdateProblemRequest) (res *proto.UpdateProblemResponse, err error) {
-	courseId, err := uuid.Parse(req.CourseId)
-	if err != nil {
-		return nil, err
-	}
-
 	raw := &problem.Problem{
-		CourseID: &courseId,
-		Group:    req.Group,
-		Code:     req.Code,
-		Name:     req.Name,
+		CourseCode: req.CourseCode,
+		Group:      req.Group,
+		Code:       req.Code,
+		Name:       req.Name,
 	}
 
 	err = s.repository.Update(req.Id, raw)
@@ -137,11 +132,6 @@ func DtoToRaw(in *proto.Problem) (result *problem.Problem, err error) {
 		}
 	}
 
-	courseId, err := uuid.Parse(in.CourseId)
-	if err != nil {
-		return nil, err
-	}
-
 	return &problem.Problem{
 		Base: model.Base{
 			ID:        id,
@@ -149,10 +139,10 @@ func DtoToRaw(in *proto.Problem) (result *problem.Problem, err error) {
 			UpdatedAt: time.Time{},
 			DeletedAt: gorm.DeletedAt{},
 		},
-		CourseID: &courseId,
-		Group:    in.Group,
-		Code:     in.Code,
-		Name:     in.Name,
+		CourseCode: in.CourseCode,
+		Group:      in.Group,
+		Code:       in.Code,
+		Name:       in.Name,
 	}, nil
 }
 
@@ -167,10 +157,10 @@ func RawToDtoList(in *[]*problem.Problem) []*proto.Problem {
 
 func RawToDto(in *problem.Problem) *proto.Problem {
 	return &proto.Problem{
-		Id:       in.ID.String(),
-		CourseId: in.CourseID.String(),
-		Group:    in.Group,
-		Code:     in.Code,
-		Name:     in.Name,
+		Id:         in.ID.String(),
+		CourseCode: in.CourseCode,
+		Group:      in.Group,
+		Code:       in.Code,
+		Name:       in.Name,
 	}
 }

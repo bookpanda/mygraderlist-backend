@@ -13,7 +13,7 @@ service ProblemService {
 
 message Problem{
   string id = 1;
-  string courseId = 2;
+  string courseCode = 2;
   string group = 3;
   string code = 4;
   string name = 5;
@@ -39,7 +39,7 @@ message CreateProblemResponse{
 // Update
 message UpdateProblemRequest{
   string id = 1;
-  string courseId = 2;
+  string courseCode = 2;
   string group = 3;
   string code = 4;
   string name = 5;

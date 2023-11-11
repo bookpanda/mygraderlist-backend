@@ -65,9 +65,9 @@ func (s *Service) Create(_ context.Context, req *proto.CreateCourseRequest) (res
 func (s *Service) Update(_ context.Context, req *proto.UpdateCourseRequest) (res *proto.UpdateCourseResponse, err error) {
 
 	raw := &course.Course{
-		Course: req.Course,
-		Name:   req.Name,
-		Color:  req.Color,
+		CourseCode: req.CourseCode,
+		Name:       req.Name,
+		Color:      req.Color,
 	}
 
 	err = s.repository.Update(req.Id, raw)
@@ -103,9 +103,9 @@ func DtoToRaw(in *proto.Course) (result *course.Course, err error) {
 			UpdatedAt: time.Time{},
 			DeletedAt: gorm.DeletedAt{},
 		},
-		Course: in.Course,
-		Name:   in.Name,
-		Color:  in.Color,
+		CourseCode: in.CourseCode,
+		Name:       in.Name,
+		Color:      in.Color,
 	}, nil
 }
 
@@ -120,9 +120,9 @@ func RawToDtoList(in *[]*course.Course) []*proto.Course {
 
 func RawToDto(in *course.Course) *proto.Course {
 	return &proto.Course{
-		Id:     in.ID.String(),
-		Course: in.Course,
-		Name:   in.Name,
-		Color:  in.Color,
+		Id:         in.ID.String(),
+		CourseCode: in.CourseCode,
+		Name:       in.Name,
+		Color:      in.Color,
 	}
 }

@@ -13,7 +13,7 @@ service CourseService {
 
 message Course{
   string id = 1;
-  string course = 2;
+  string courseCode = 2;
   string name = 3;
   string color = 4;
 }
@@ -38,7 +38,7 @@ message CreateCourseResponse{
 // Update
 message UpdateCourseRequest{
   string id = 1;
-  string course = 2;
+  string courseCode= 2;
   string name = 3;
   string color = 4;
 }
