@@ -115,8 +115,8 @@ func DtoToRaw(in *proto.Emoji) (result *emoji.Emoji, err error) {
 			DeletedAt: gorm.DeletedAt{},
 		},
 		Emoji:     in.Emoji,
-		ProblemId: &problemId,
-		UserId:    &userId,
+		ProblemID: &problemId,
+		UserID:    &userId,
 	}, nil
 }
 
@@ -133,7 +133,7 @@ func RawToDto(in *emoji.Emoji) *proto.Emoji {
 	return &proto.Emoji{
 		Id:        in.ID.String(),
 		Emoji:     in.Emoji,
-		ProblemId: in.ProblemId.String(),
-		UserId:    in.UserId.String(),
+		ProblemId: in.ProblemID.String(),
+		UserId:    in.UserID.String(),
 	}
 }
