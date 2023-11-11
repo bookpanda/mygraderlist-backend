@@ -65,7 +65,7 @@ func (s *Service) FindAll(_ context.Context, _ *proto.FindAllProblemRequest) (*p
 	if err != nil {
 
 		log.Error().Err(err).
-			Str("service", "baan").
+			Str("service", "problem").
 			Str("module", "find all").
 			Msg("Error while querying all baans")
 
@@ -77,7 +77,7 @@ func (s *Service) FindAll(_ context.Context, _ *proto.FindAllProblemRequest) (*p
 
 		log.Error().
 			Err(err).
-			Str("service", "baan").
+			Str("service", "problem").
 			Str("module", "find all").
 			Msg("Error while saving the cache")
 
