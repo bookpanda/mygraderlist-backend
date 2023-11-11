@@ -16,8 +16,8 @@ message Rating{
   string id = 1;
   string problemId = 2;
   string userId = 3;
-  string score = 4;
-  string difficulty = 5;
+  int32 score = 4;
+  int32 difficulty = 5;
 }
 
 // FindAll
@@ -49,8 +49,8 @@ message CreateRatingResponse{
 // Update
 message UpdateRatingRequest{
   string id = 1;
-  string score = 2;
-  string difficulty = 3;
+  int32 score = 2;
+  int32 difficulty = 3;
 }
 
 message UpdateRatingResponse{

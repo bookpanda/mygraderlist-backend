@@ -3,7 +3,7 @@ module github.com/bookpanda/mygraderlist-backend
 go 1.21.0
 
 require (
-	github.com/bookpanda/mygraderlist-proto v0.0.5
+	github.com/bookpanda/mygraderlist-proto v0.0.6
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/google/uuid v1.4.0
 	github.com/pkg/errors v0.9.1

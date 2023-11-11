@@ -40,6 +40,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/bookpanda/mygraderlist-proto v0.0.5 h1:wa5YuUcpP3DgIMv59dqcQZLnavLRqvi/f67t1CqlXaQ=
 github.com/bookpanda/mygraderlist-proto v0.0.5/go.mod h1:3+LxMLRw7Z2KI+0FekE8DfFcVzSauDCuGaUFfqPiuDQ=
+github.com/bookpanda/mygraderlist-proto v0.0.6 h1:3kPx/HrBN3nV43u6QfKWazs7mQe+ImRWe63XEwY6s1c=
+github.com/bookpanda/mygraderlist-proto v0.0.6/go.mod h1:3+LxMLRw7Z2KI+0FekE8DfFcVzSauDCuGaUFfqPiuDQ=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/cespare/xxhash/v2 v2.2.0 h1:DC2CZ1Ep5Y4k3ZQ899DldepgrayRUGE6BBZ/cd9Cj44=
 github.com/cespare/xxhash/v2 v2.2.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
