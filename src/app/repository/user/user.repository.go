@@ -1,8 +1,7 @@
 package user
 
 import (
-	"os/user"
-
+	"github.com/bookpanda/mygraderlist-backend/src/app/model/user"
 	"gorm.io/gorm"
 )
 

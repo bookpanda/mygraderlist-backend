@@ -17,7 +17,6 @@ import (
 
 type Service struct {
 	repository IRepository
-	cache      ICacheRepository
 	conf       config.App
 }
 
@@ -28,15 +27,9 @@ type IRepository interface {
 	Delete(string) error
 }
 
-type ICacheRepository interface {
-	SaveCache(string, interface{}, int) error
-	GetCache(string, interface{}) error
-}
-
-func NewService(repository IRepository, cache ICacheRepository, conf config.App) *Service {
+func NewService(repository IRepository, conf config.App) *Service {
 	return &Service{
 		repository: repository,
-		cache:      cache,
 		conf:       conf,
 	}
 }

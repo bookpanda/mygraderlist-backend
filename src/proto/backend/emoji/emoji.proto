@@ -5,7 +5,7 @@ package emoji;
 option go_package = "MyGraderList/backend/emoji";
 
 service EmojiService {
-  rpc FindAll(FindByUserIdEmojiRequest) returns(FindByUserIdEmojiResponse) {}
+  rpc FindAll(FindAllEmojiRequest) returns(FindAllEmojiResponse) {}
   rpc FindByUserId(FindByUserIdEmojiRequest) returns(FindByUserIdEmojiResponse) {}
   rpc Create(CreateEmojiRequest) returns (CreateEmojiResponse){}
   rpc Delete(DeleteEmojiRequest) returns (DeleteEmojiResponse){}
