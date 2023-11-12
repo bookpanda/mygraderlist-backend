@@ -155,7 +155,7 @@ func main() {
 	cacheRepo := cache.NewRepository(cacheDB)
 
 	userRepo := usrRepo.NewRepository(db)
-	userService := usrService.NewService(userRepo, conf.App)
+	userService := usrService.NewService(userRepo)
 
 	courseRepo := crsRepo.NewRepository(db)
 	courseService := crsService.NewService(courseRepo, conf.App)
