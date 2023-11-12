@@ -140,6 +140,36 @@ func createRatingDto(in []*rating.Rating) []*proto.Rating {
 	return result
 }
 
+func (t *RatingServiceTest) TestFindByUserIdSuccess() {
+	want := &proto.FindByUserIdRatingResponse{Ratings: createRatingDto(t.Ratings)}
+
+	repo := &mock.RepositoryMock{}
+
+	var ratings []*rating.Rating
+	repo.On("FindByUserId", t.Rating.UserID.String(), &ratings).Return(&t.Ratings, nil)
+
+	srv := NewService(repo)
+	actual, err := srv.FindByUserId(context.Background(), &proto.FindByUserIdRatingRequest{UserId: t.RatingDto.UserId})
+
+	assert.Nil(t.T(), err)
+	assert.Equal(t.T(), want, actual)
+}
+
+func (t *RatingServiceTest) TestFindByUserIdNotFound() {
+	repo := &mock.RepositoryMock{}
+
+	var ratings []*rating.Rating
+	repo.On("FindByUserId", t.Rating.UserID.String(), &ratings).Return(nil, errors.New("Not found user"))
+
+	srv := NewService(repo)
+	actual, err := srv.FindByUserId(context.Background(), &proto.FindByUserIdRatingRequest{UserId: t.RatingDto.UserId})
+
+	st, ok := status.FromError(err)
+	assert.True(t.T(), ok)
+	assert.Nil(t.T(), actual)
+	assert.Equal(t.T(), codes.NotFound, st.Code())
+}
+
 func (t *RatingServiceTest) TestCreateSuccess() {
 	want := &proto.CreateRatingResponse{Rating: t.RatingDto}
 
