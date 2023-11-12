@@ -164,7 +164,7 @@ func main() {
 	problemService := prblmService.NewService(problemRepo, cacheRepo, conf.App)
 
 	likeRepo := lkRepo.NewRepository(db)
-	likeService := lkService.NewService(likeRepo, conf.App)
+	likeService := lkService.NewService(likeRepo)
 
 	emojiRepo := emjRepo.NewRepository(db)
 	emojiService := emjService.NewService(emojiRepo)
