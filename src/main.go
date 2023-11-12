@@ -170,7 +170,7 @@ func main() {
 	emojiService := emjService.NewService(emojiRepo, conf.App)
 
 	ratingRepo := rtngRepo.NewRepository(db)
-	ratingService := rtngService.NewService(ratingRepo, conf.App)
+	ratingService := rtngService.NewService(ratingRepo)
 
 	grpc_health_v1.RegisterHealthServer(grpcServer, health.NewServer())
 	usr_proto.RegisterUserServiceServer(grpcServer, userService)
