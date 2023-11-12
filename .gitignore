@@ -31,3 +31,5 @@ coverage.out
 coverage.html
 
 token.txt
+
+.DS_Store

@@ -23,7 +23,8 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 		return nil, err
 	}
 
-	err = db.AutoMigrate(&user.User{}, &problem.Problem{}, &course.Course{})
+	err = db.AutoMigrate(&user.User{}, &course.Course{})
+	err = db.AutoMigrate(&problem.Problem{})
 	err = db.AutoMigrate(&rating.Rating{}, &emoji.Emoji{}, &like.Like{})
 	if err != nil {
 		return nil, err
