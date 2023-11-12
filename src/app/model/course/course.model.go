@@ -6,7 +6,7 @@ import (
 
 type Course struct {
 	model.Base
-	CourseCode string `json:"course_code" gorm:"type:tinytext"`
+	CourseCode string `json:"course_code" gorm:"type:tinytext;size:191"`
 	Name       string `json:"name" gorm:"type:mediumtext"`
 	Color      string `json:"color" gorm:"type:tinytext"`
 }

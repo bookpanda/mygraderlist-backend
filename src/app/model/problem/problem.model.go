@@ -11,5 +11,5 @@ type Problem struct {
 	Code       string         `json:"code" gorm:"type:tinytext"`
 	Name       string         `json:"name" gorm:"type:tinytext"`
 	CourseCode string         `json:"course_code"`
-	Course     *course.Course `json:"course" gorm:"foreignKey:CourseCode;constraint:OnUpdate:CASCADE;OnDelete:SET NULL;"`
+	Course     *course.Course `json:"course" gorm:"foreignKey:CourseCode;references:CourseCode;constraint:OnUpdate:CASCADE;OnDelete:SET NULL;"`
 }
