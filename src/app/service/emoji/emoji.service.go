@@ -6,7 +6,6 @@ import (
 
 	"github.com/bookpanda/mygraderlist-backend/src/app/model"
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/emoji"
-	"github.com/bookpanda/mygraderlist-backend/src/config"
 	proto "github.com/bookpanda/mygraderlist-proto/MyGraderList/backend/emoji"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
@@ -17,7 +16,6 @@ import (
 
 type Service struct {
 	repository IRepository
-	conf       config.App
 }
 
 type IRepository interface {
@@ -27,10 +25,9 @@ type IRepository interface {
 	Delete(string) error
 }
 
-func NewService(repository IRepository, conf config.App) *Service {
+func NewService(repository IRepository) *Service {
 	return &Service{
 		repository: repository,
-		conf:       conf,
 	}
 }
 
