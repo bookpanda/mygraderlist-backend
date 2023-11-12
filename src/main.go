@@ -158,7 +158,7 @@ func main() {
 	userService := usrService.NewService(userRepo)
 
 	courseRepo := crsRepo.NewRepository(db)
-	courseService := crsService.NewService(courseRepo, conf.App)
+	courseService := crsService.NewService(courseRepo)
 
 	problemRepo := prblmRepo.NewRepository(db)
 	problemService := prblmService.NewService(problemRepo, cacheRepo, conf.App)
