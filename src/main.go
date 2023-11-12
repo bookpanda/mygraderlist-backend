@@ -120,7 +120,7 @@ func main() {
 	if err != nil {
 		log.Fatal().
 			Err(err).
-			Str("service", "backend").
+			Str("service", "backend load config").
 			Msg("Failed to start service")
 	}
 
@@ -128,7 +128,7 @@ func main() {
 	if err != nil {
 		log.Fatal().
 			Err(err).
-			Str("service", "backend").
+			Str("service", "backend database").
 			Msg("Failed to start service")
 	}
 
@@ -136,7 +136,7 @@ func main() {
 	if err != nil {
 		log.Fatal().
 			Err(err).
-			Str("service", "backend").
+			Str("service", "backend redis cache").
 			Msg("Failed to start service")
 	}
 
@@ -146,7 +146,7 @@ func main() {
 	if err != nil {
 		log.Fatal().
 			Err(err).
-			Str("service", "backend").
+			Str("service", "backend server").
 			Msg("Failed to start service")
 	}
 
@@ -184,7 +184,7 @@ func main() {
 	go func() {
 		log.Info().
 			Str("service", "backend").
-			Msgf("RNKM65 backend starting at port %v", conf.App.Port)
+			Msgf("MyGraderList backend starting at port %v", conf.App.Port)
 
 		if err = grpcServer.Serve(lis); err != nil {
 			log.Fatal().
