@@ -199,7 +199,6 @@ func (t *UserServiceTest) TestDeleteSuccess() {
 	want := &proto.DeleteUserResponse{Success: true}
 
 	repo := &mock.RepositoryMock{}
-
 	repo.On("Delete", t.User.ID.String()).Return(nil)
 
 	srv := NewService(repo)
@@ -211,7 +210,6 @@ func (t *UserServiceTest) TestDeleteSuccess() {
 
 func (t *UserServiceTest) TestDeleteNotFound() {
 	repo := &mock.RepositoryMock{}
-
 	repo.On("Delete", t.User.ID.String()).Return(errors.New("Not found user"))
 
 	srv := NewService(repo)

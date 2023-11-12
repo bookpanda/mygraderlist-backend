@@ -106,10 +106,10 @@ func (t *CourseServiceTest) TestFindAllSuccess() {
 
 	var coursesIn []*course.Course
 
-	r := mock.RepositoryMock{}
-	r.On("FindAll", &coursesIn).Return(&t.Courses, nil)
+	repo := mock.RepositoryMock{}
+	repo.On("FindAll", &coursesIn).Return(&t.Courses, nil)
 
-	srv := NewService(&r)
+	srv := NewService(&repo)
 	actual, err := srv.FindAll(context.Background(), &proto.FindAllCourseRequest{})
 
 	assert.Nil(t.T(), err)
@@ -203,7 +203,6 @@ func (t *CourseServiceTest) TestDeleteSuccess() {
 	want := &proto.DeleteCourseResponse{Success: true}
 
 	repo := &mock.RepositoryMock{}
-
 	repo.On("Delete", t.Course.ID.String()).Return(nil)
 
 	srv := NewService(repo)
@@ -215,7 +214,6 @@ func (t *CourseServiceTest) TestDeleteSuccess() {
 
 func (t *CourseServiceTest) TestDeleteNotFound() {
 	repo := &mock.RepositoryMock{}
-
 	repo.On("Delete", t.Course.ID.String()).Return(errors.New("Not found Course"))
 
 	srv := NewService(repo)
