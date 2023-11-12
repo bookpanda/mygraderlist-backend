@@ -130,8 +130,8 @@ func DtoToRaw(in *proto.Rating) (result *rating.Rating, err error) {
 			UpdatedAt: time.Time{},
 			DeletedAt: gorm.DeletedAt{},
 		},
-		ProblemId:  &problemId,
-		UserId:     &userId,
+		ProblemID:  &problemId,
+		UserID:     &userId,
 		Score:      int(in.Score),
 		Difficulty: int(in.Difficulty),
 	}, nil
@@ -149,8 +149,8 @@ func RawToDtoList(in *[]*rating.Rating) []*proto.Rating {
 func RawToDto(in *rating.Rating) *proto.Rating {
 	return &proto.Rating{
 		Id:         in.ID.String(),
-		ProblemId:  in.ProblemId.String(),
-		UserId:     in.UserId.String(),
+		ProblemId:  in.ProblemID.String(),
+		UserId:     in.UserID.String(),
 		Score:      int32(in.Score),
 		Difficulty: int32(in.Difficulty),
 	}

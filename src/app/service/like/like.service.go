@@ -97,7 +97,7 @@ func DtoToRaw(in *proto.Like) (result *like.Like, err error) {
 			DeletedAt: gorm.DeletedAt{},
 		},
 		ProblemID: &problemId,
-		UserId:    &userId,
+		UserID:    &userId,
 	}, nil
 }
 
@@ -114,6 +114,6 @@ func RawToDto(in *like.Like) *proto.Like {
 	return &proto.Like{
 		Id:        in.ID.String(),
 		ProblemId: in.ProblemID.String(),
-		UserId:    in.UserId.String(),
+		UserId:    in.UserID.String(),
 	}
 }
