@@ -17,6 +17,7 @@ message Problem{
   string group = 3;
   string code = 4;
   string name = 5;
+  int32 order = 6;
 }
 
 // FindAll

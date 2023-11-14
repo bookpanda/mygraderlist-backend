@@ -104,6 +104,7 @@ func (s *Service) Update(_ context.Context, req *proto.UpdateProblemRequest) (re
 		Group:      req.Group,
 		Code:       req.Code,
 		Name:       req.Name,
+		Order:      int(req.Order),
 	}
 
 	err = s.repository.Update(req.Id, raw)
@@ -143,6 +144,7 @@ func DtoToRaw(in *proto.Problem) (result *problem.Problem, err error) {
 		Group:      in.Group,
 		Code:       in.Code,
 		Name:       in.Name,
+		Order:      int(in.Order),
 	}, nil
 }
 
@@ -162,5 +164,6 @@ func RawToDto(in *problem.Problem) *proto.Problem {
 		Group:      in.Group,
 		Code:       in.Code,
 		Name:       in.Name,
+		Order:      int32(in.Order),
 	}
 }

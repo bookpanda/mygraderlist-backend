@@ -51,6 +51,7 @@ func (t *ProblemServiceTest) SetupTest() {
 		Code:       faker.Name(),
 		Name:       faker.Name(),
 		CourseCode: faker.Name(),
+		Order:      1,
 	}
 
 	Problem2 := &problem.Problem{
@@ -64,6 +65,7 @@ func (t *ProblemServiceTest) SetupTest() {
 		Code:       faker.Name(),
 		Name:       faker.Name(),
 		CourseCode: faker.Name(),
+		Order:      2,
 	}
 	Problem3 := &problem.Problem{
 		Base: model.Base{
@@ -76,6 +78,7 @@ func (t *ProblemServiceTest) SetupTest() {
 		Code:       faker.Name(),
 		Name:       faker.Name(),
 		CourseCode: faker.Name(),
+		Order:      3,
 	}
 	t.Problems = append(t.Problems, t.Problem, Problem2, Problem3)
 
@@ -85,6 +88,7 @@ func (t *ProblemServiceTest) SetupTest() {
 		Code:       t.Problem.Code,
 		Name:       t.Problem.Name,
 		CourseCode: t.Problem.CourseCode,
+		Order:      int32(t.Problem.Order),
 	}
 
 	t.CreateProblemReqMock = &proto.CreateProblemRequest{
@@ -93,6 +97,7 @@ func (t *ProblemServiceTest) SetupTest() {
 			Code:       t.Problem.Code,
 			Name:       t.Problem.Name,
 			CourseCode: t.Problem.CourseCode,
+			Order:      int32(t.Problem.Order),
 		},
 	}
 
@@ -102,6 +107,7 @@ func (t *ProblemServiceTest) SetupTest() {
 		Code:       t.Problem.Code,
 		Name:       t.Problem.Name,
 		CourseCode: t.Problem.CourseCode,
+		Order:      int32(t.Problem.Order),
 	}
 
 	t.UpdateProblem = &problem.Problem{
@@ -109,6 +115,7 @@ func (t *ProblemServiceTest) SetupTest() {
 		Code:       t.Problem.Code,
 		Name:       t.Problem.Name,
 		CourseCode: t.Problem.CourseCode,
+		Order:      t.Problem.Order,
 	}
 
 	t.conf = config.App{
@@ -149,6 +156,7 @@ func createProblemDto(in []*problem.Problem) []*proto.Problem {
 			Code:       b.Code,
 			Name:       b.Name,
 			CourseCode: b.CourseCode,
+			Order:      int32(b.Order),
 		}
 
 		result = append(result, r)
@@ -167,6 +175,7 @@ func (t *ProblemServiceTest) TestCreateSuccess() {
 		Code:       t.Problem.Code,
 		Name:       t.Problem.Name,
 		CourseCode: t.Problem.CourseCode,
+		Order:      t.Problem.Order,
 	}
 
 	repo := &mock.RepositoryMock{}
@@ -191,6 +200,7 @@ func (t *ProblemServiceTest) TestCreateInternalErr() {
 		Code:       t.Problem.Code,
 		Name:       t.Problem.Name,
 		CourseCode: t.Problem.CourseCode,
+		Order:      t.Problem.Order,
 	}
 	var problemsIn []*problem.Problem
 
