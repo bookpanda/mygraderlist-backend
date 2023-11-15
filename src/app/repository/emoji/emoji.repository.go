@@ -1,7 +1,6 @@
 package course
 
 import (
-	"github.com/bookpanda/mygraderlist-backend/src/app/model/course"
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/emoji"
 	"gorm.io/gorm"
 )
@@ -15,7 +14,7 @@ func NewRepository(db *gorm.DB) *Repository {
 }
 
 func (r *Repository) FindAll(result *[]*emoji.Emoji) error {
-	return r.db.Model(&course.Course{}).Find(result).Error
+	return r.db.Model(&emoji.Emoji{}).Find(result).Error
 }
 
 func (r *Repository) FindByUserId(userId string, result *[]*emoji.Emoji) error {
