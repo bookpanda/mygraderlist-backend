@@ -7,9 +7,7 @@ import (
 	"github.com/bookpanda/mygraderlist-backend/src/app/model"
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/problem"
 	"github.com/bookpanda/mygraderlist-backend/src/config"
-	constant "github.com/bookpanda/mygraderlist-backend/src/constant/problem"
 	proto "github.com/bookpanda/mygraderlist-proto/MyGraderList/backend/problem"
-	"github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc/codes"
@@ -45,23 +43,23 @@ func NewService(repository IRepository, cache ICacheRepository, conf config.App)
 
 func (s *Service) FindAll(_ context.Context, _ *proto.FindAllProblemRequest) (*proto.FindAllProblemResponse, error) {
 	var problems []*problem.Problem
-	err := s.cache.GetCache(constant.ProblemKey, &problems)
-	if err != redis.Nil {
+	// err := s.cache.GetCache(constant.ProblemKey, &problems)
+	// if err != redis.Nil {
 
-		if err != nil {
-			log.Error().
-				Err(err).
-				Str("service", "problem").
-				Str("module", "find all").
-				Msg("Error while get cache")
+	// 	if err != nil {
+	// 		log.Error().
+	// 			Err(err).
+	// 			Str("service", "problem").
+	// 			Str("module", "find all").
+	// 			Msg("Error while get cache")
 
-			return nil, status.Error(codes.Unavailable, "Service is down")
-		}
+	// 		return nil, status.Error(codes.Unavailable, "Service is down")
+	// 	}
 
-		return &proto.FindAllProblemResponse{Problems: RawToDtoList(&problems)}, nil
-	}
+	// 	return &proto.FindAllProblemResponse{Problems: RawToDtoList(&problems)}, nil
+	// }
 
-	err = s.repository.FindAll(&problems)
+	err := s.repository.FindAll(&problems)
 	if err != nil {
 
 		log.Error().Err(err).
@@ -72,17 +70,17 @@ func (s *Service) FindAll(_ context.Context, _ *proto.FindAllProblemRequest) (*p
 		return nil, status.Error(codes.Unavailable, "Internal error")
 	}
 
-	err = s.cache.SaveCache(constant.ProblemKey, &problems, s.conf.ProblemCacheTTL)
-	if err != nil {
+	// err = s.cache.SaveCache(constant.ProblemKey, &problems, s.conf.ProblemCacheTTL)
+	// if err != nil {
 
-		log.Error().
-			Err(err).
-			Str("service", "problem").
-			Str("module", "find all").
-			Msg("Error while saving the cache")
+	// 	log.Error().
+	// 		Err(err).
+	// 		Str("service", "problem").
+	// 		Str("module", "find all").
+	// 		Msg("Error while saving the cache")
 
-		return nil, status.Error(codes.Unavailable, "Service is down")
-	}
+	// 	return nil, status.Error(codes.Unavailable, "Service is down")
+	// }
 
 	return &proto.FindAllProblemResponse{Problems: RawToDtoList(&problems)}, nil
 }
