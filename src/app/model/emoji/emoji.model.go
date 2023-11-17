@@ -9,7 +9,7 @@ import (
 
 type Emoji struct {
 	model.Base
-	Emoji     string           `json:"emoji" gorm:"type:tinytext"`
+	Emoji     string           `json:"emoji"`
 	ProblemID *uuid.UUID       `json:"problem_id"`
 	Problem   *problem.Problem `json:"problem" gorm:"foreignKey:ProblemID;constraint:OnUpdate:CASCADE;OnDelete:SET NULL;"`
 	UserID    *uuid.UUID       `json:"user_id"`
