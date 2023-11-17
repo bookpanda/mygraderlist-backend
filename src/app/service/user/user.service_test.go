@@ -16,7 +16,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gorm.io/gorm"
 )
 
 type UserServiceTest struct {
@@ -38,7 +37,7 @@ func (t *UserServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Username: faker.Username(),
 		Email:    faker.Email(),

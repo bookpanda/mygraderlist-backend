@@ -11,7 +11,6 @@ import (
 	"github.com/rs/zerolog/log"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gorm.io/gorm"
 )
 
 type Service struct {
@@ -98,7 +97,7 @@ func DtoToRaw(in *proto.Course) (result *course.Course, err error) {
 			ID:        id,
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		CourseCode: in.CourseCode,
 		Name:       in.Name,

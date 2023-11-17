@@ -19,7 +19,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gorm.io/gorm"
 )
 
 type ProblemServiceTest struct {
@@ -45,7 +44,7 @@ func (t *ProblemServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Group:      faker.Name(),
 		Code:       faker.Name(),
@@ -59,7 +58,7 @@ func (t *ProblemServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Group:      faker.Name(),
 		Code:       faker.Name(),
@@ -72,7 +71,7 @@ func (t *ProblemServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Group:      faker.Name(),
 		Code:       faker.Name(),

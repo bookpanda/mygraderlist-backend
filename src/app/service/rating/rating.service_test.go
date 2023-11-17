@@ -15,7 +15,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gorm.io/gorm"
 )
 
 type RatingServiceTest struct {
@@ -44,7 +43,7 @@ func (t *RatingServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Score:      1,
 		Difficulty: 2,
@@ -57,7 +56,7 @@ func (t *RatingServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Score:      1,
 		Difficulty: 2,
@@ -69,7 +68,7 @@ func (t *RatingServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Score:      1,
 		Difficulty: 2,

@@ -15,7 +15,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gorm.io/gorm"
 )
 
 type LikeServiceTest struct {
@@ -42,7 +41,7 @@ func (t *LikeServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		ProblemID: &t.problemID,
 		UserID:    &t.userID,
@@ -53,7 +52,7 @@ func (t *LikeServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		ProblemID: &t.problemID,
 		UserID:    &t.userID,
@@ -63,7 +62,7 @@ func (t *LikeServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		ProblemID: &t.problemID,
 		UserID:    &t.userID,

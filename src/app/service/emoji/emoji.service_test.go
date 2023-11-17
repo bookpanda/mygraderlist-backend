@@ -15,7 +15,6 @@ import (
 	"github.com/stretchr/testify/suite"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"gorm.io/gorm"
 )
 
 type EmojiServiceTest struct {
@@ -42,7 +41,7 @@ func (t *EmojiServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Emoji:     "👍",
 		ProblemID: &t.problemID,
@@ -54,7 +53,7 @@ func (t *EmojiServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Emoji:     "💀",
 		ProblemID: &t.problemID,
@@ -65,7 +64,7 @@ func (t *EmojiServiceTest) SetupTest() {
 			ID:        uuid.New(),
 			CreatedAt: time.Time{},
 			UpdatedAt: time.Time{},
-			DeletedAt: gorm.DeletedAt{},
+			// DeletedAt: gorm.DeletedAt{},
 		},
 		Emoji:     "💩",
 		ProblemID: &t.problemID,
