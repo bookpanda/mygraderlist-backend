@@ -34,7 +34,7 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 
 	var count int64
 	for _, b := range seed.Courses {
-		if db.Where("course_code = ?", b.CourseCode).Count(&count); count == 0 {
+		if db.Model(&course.Course{}).Where("course_code = ?", b.CourseCode).Count(&count); count == 0 {
 			err := db.Create(&b).Error
 			if err != nil {
 				return nil, err
@@ -49,7 +49,7 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 	log.Println("✔️Seed", "courses", "succeed")
 
 	for _, b := range seed.Problems {
-		if db.Where("code = ?", b.Code).Count(&count); count == 0 {
+		if db.Model(&problem.Problem{}).Where("code = ?", b.Code).Count(&count); count == 0 {
 			err := db.Create(&b).Error
 			if err != nil {
 				return nil, err
