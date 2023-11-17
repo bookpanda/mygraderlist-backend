@@ -32,9 +32,15 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 		return nil, err
 	}
 
+	var count int64
 	for _, b := range seed.Courses {
-		if db.Where("id = ?", b.ID.String()).Updates(&b).RowsAffected == 0 {
+		if db.Where("course_code = ?", b.CourseCode).Count(&count); count == 0 {
 			err := db.Create(&b).Error
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			err := db.Where("course_code = ?", b.CourseCode).Updates(&b).Error
 			if err != nil {
 				return nil, err
 			}
@@ -43,8 +49,13 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 	log.Println("✔️Seed", "courses", "succeed")
 
 	for _, b := range seed.Problems {
-		if db.Where("id = ?", b.ID.String()).Updates(&b).RowsAffected == 0 {
+		if db.Where("code = ?", b.Code).Count(&count); count == 0 {
 			err := db.Create(&b).Error
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			err := db.Where("code = ?", b.Code).Updates(&b).Error
 			if err != nil {
 				return nil, err
 			}
