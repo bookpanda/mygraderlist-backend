@@ -4,7 +4,7 @@ import (
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/problem"
 )
 
-var problems = []problem.Problem{
+var Problems = []problem.Problem{
 	{
 		Group:      "ex",
 		Code:       "ex00e1",

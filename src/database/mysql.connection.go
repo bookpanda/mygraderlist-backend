@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"log"
 	"os/user"
 	"strconv"
 
@@ -11,6 +12,7 @@ import (
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/problem"
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/rating"
 	"github.com/bookpanda/mygraderlist-backend/src/config"
+	seed "github.com/bookpanda/mygraderlist-backend/src/database/seeds"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -29,6 +31,26 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 	if err != nil {
 		return nil, err
 	}
+
+	for _, b := range seed.Courses {
+		if db.Where("id = ?", b.ID.String()).Updates(&b).RowsAffected == 0 {
+			err := db.Create(&b).Error
+			if err != nil {
+				return nil, err
+			}
+		}
+	}
+	log.Println("✔️Seed", "courses", "succeed")
+
+	for _, b := range seed.Problems {
+		if db.Where("id = ?", b.ID.String()).Updates(&b).RowsAffected == 0 {
+			err := db.Create(&b).Error
+			if err != nil {
+				return nil, err
+			}
+		}
+	}
+	log.Println("✔️Seed", "problems", "succeed")
 
 	return
 }

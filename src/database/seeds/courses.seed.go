@@ -4,7 +4,7 @@ import (
 	"github.com/bookpanda/mygraderlist-backend/src/app/model/course"
 )
 
-var courses = []course.Course{
+var Courses = []course.Course{
 	{
 		CourseCode: "liked",
 		Name:       "Liked Problems",
