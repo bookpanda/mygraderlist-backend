@@ -1,8 +1,10 @@
 package seed
 
+import "github.com/bookpanda/mygraderlist-backend/src/app/model/problem"
+
 func (s Seed) ProblemSeed12181149() error {
 	for _, b := range problems {
-		err := s.db.Create(&b).Error
+		err := s.db.Model(&problem.Problem{}).Create(&b).Error
 
 		if err != nil {
 			return err

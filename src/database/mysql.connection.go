@@ -23,8 +23,6 @@ func InitDatabase(conf *config.Database) (db *gorm.DB, err error) {
 		return nil, err
 	}
 
-	db = db.Set("gorm:table_options", "ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci")
-
 	err = db.AutoMigrate(&user.User{}, &course.Course{})
 	err = db.AutoMigrate(&problem.Problem{})
 	err = db.AutoMigrate(&rating.Rating{}, &emoji.Emoji{}, &like.Like{})
