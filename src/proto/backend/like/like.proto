@@ -34,16 +34,6 @@ message CreateLikeResponse{
   Like like = 1;
 }
 
-// Update
-message UpdateLikeRequest{
-  string problemId = 1;
-  string userId = 2;
-}
-
-message UpdateLikeResponse{
-  Like Like = 1;
-}
-
 // Delete
 message DeleteLikeRequest{
   string id = 1;
