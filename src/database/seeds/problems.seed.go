@@ -992,4 +992,35 @@ var Problems = []problem.Problem{
 		CourseCode: "2110263",
 		Order:      141,
 	},
+	{
+		Group:      "d66",
+		Code:       "d66_q3b_queue_free",
+		Name:       "Queue Free Space",
+		CourseCode: "2110263",
+		Order:      142,
+	}, {
+		Group:      "d66",
+		Code:       "d66_q4a_list_block_swap",
+		Name:       "List Block Swap",
+		CourseCode: "2110263",
+		Order:      143,
+	}, {
+		Group:      "d66",
+		Code:       "d66_q4a_bst_trim",
+		Name:       "BST Trim",
+		CourseCode: "2110263",
+		Order:      144,
+	}, {
+		Group:      "d66",
+		Code:       "d66_q2c_vector_partial_sort",
+		Name:       "Vector Partial Sort",
+		CourseCode: "2110263",
+		Order:      145,
+	}, {
+		Group:      "da66",
+		Code:       "da66_m1_line_monopoly",
+		Name:       "Line Monopoly",
+		CourseCode: "2110263",
+		Order:      146,
+	},
 }
