@@ -1020,19 +1020,19 @@ var Problems = []problem.Problem{
 		Group:      "diglab",
 		Code:       "diglab_2023_final_03",
 		Name:       "Digital Logic: Final 2023 - 03",
-		CourseCode: "2110211",
+		CourseCode: "2110263",
 		Order:      146,
 	}, {
 		Group:      "diglab",
 		Code:       "diglab_2023_final_02",
 		Name:       "Digital Logic: Final 2023 - 02",
-		CourseCode: "2110211",
+		CourseCode: "2110263",
 		Order:      147,
 	}, {
 		Group:      "diglab",
 		Code:       "diglab_2023_final_01",
 		Name:       "Digital Logic: Final 2023 - 01",
-		CourseCode: "2110211",
+		CourseCode: "2110263",
 		Order:      148,
 	}, {
 		Group:      "da66",
