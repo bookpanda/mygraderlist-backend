@@ -1040,5 +1040,29 @@ var Problems = []problem.Problem{
 		Name:       "Line Monopoly",
 		CourseCode: "2110211",
 		Order:      149,
+	}, {
+		Group:      "d66",
+		Code:       "d66_f1_map_k_range",
+		Name:       "Map Key in Range",
+		CourseCode: "2110211",
+		Order:      150,
+	}, {
+		Group:      "d66",
+		Code:       "d66_f1_longest_find",
+		Name:       "Hash Longest Find",
+		CourseCode: "2110211",
+		Order:      151,
+	}, {
+		Group:      "d66",
+		Code:       "d66_f1_lcrs",
+		Name:       "Left Child Right Sibling",
+		CourseCode: "2110211",
+		Order:      152,
+	}, {
+		Group:      "d66",
+		Code:       "d66_f1_digital_wallet",
+		Name:       "Digital Wallet",
+		CourseCode: "2110211",
+		Order:      153,
 	},
 }
