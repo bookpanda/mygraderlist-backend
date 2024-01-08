@@ -20,4 +20,9 @@ var Courses = []course.Course{
 		Name:       "Digital Logic Lab",
 		Color:      "#854d0e",
 	},
+	{
+		CourseCode: "2110327",
+		Name:       "Algorithm Design",
+		Color:      "#e2cb18",
+	},
 }
